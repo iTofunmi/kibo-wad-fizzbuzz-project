@@ -1,12 +1,13 @@
 from flask import Flask, render_template
 
-# Create an instance of the Flask class, which will be our web application
 app = Flask(__name__)
+@app.route('/')
+def home():
+    return "Welcome to the homepage. <a href='/fizzbuzz/'>Go to FizzBuzz</a>"
 
-# Define a route for the root URL ("/") and the associated view function
-@app.route('/fizzbuzz')
+@app.route('/fizzbuzz/')
 def fizzbuzz():
-    unordered_list=[]
+    unordered_list = []
     for number in range(1, 101):
         if number % 3 == 0 and number % 5 == 0:
             unordered_list.append('FizzBuzz')
